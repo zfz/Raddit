@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416034626) do
+ActiveRecord::Schema.define(version: 20150416063816) do
 
   create_table "comments", force: true do |t|
     t.integer  "link_id"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20150416034626) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "invite_code"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
