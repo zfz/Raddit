@@ -1,0 +1,7 @@
+var new_comment = $("<%= escape_javascript(render(:partial => @comment)) %>").hide();
+$('#comments').append(new_comment);
+$('#comment_<%= @comment.id %>').fadeIn('slow');
+$('#new_comment')[0].reset();
+
+var new_comment_count = parseInt($('#comment_count').text()) + 1;
+$('#comment_count').text(new_comment_count);
