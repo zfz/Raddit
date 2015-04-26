@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to @link, notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
+        format.js #create.js.erb
       else
         #format.html { render :new }
         format.html { redirect_to @link, notice: 'Comment was not created.' }

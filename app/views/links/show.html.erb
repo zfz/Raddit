@@ -27,13 +27,13 @@
 <% end %>
 
 <h3 class="comments_title">
-  <%= @link.comments.count %> Comments
+  <div style="display:inline-block;" id="comment_count"><%= @link.comments.count %></div> Comments
 </h3>
  
 <div id="comments">
   <%= render :partial => @link.comments %>
 </div>
-<%= simple_form_for [@link, Comment.new] do |f| %>
+<%= simple_form_for [@link, Comment.new], remote: true do |f| %>
   <div class="field">
     <%= f.text_area :body, class: "form-control" %>
   </div>
