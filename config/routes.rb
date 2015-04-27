@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   root to: "links#index"
 
-  get '/profiles/:id', to: 'profiles#show'
+  get '/profiles/:id', to: 'profiles#show', as: 'profiles'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
