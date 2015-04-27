@@ -5,6 +5,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :name,
+    presence: :true,
+    length: { minimum: 2, maximum: 30,
+                message: "length betwenn 2 and 30" },
+    format: { with: /\A[a-zA-Z0-9]+\z/,
+                message: "only allows letters and digits" }
+
   validates :invite_code,
     on: :create,
     presence: :true,
