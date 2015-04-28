@@ -1,0 +1,2 @@
+$('<%=escape_javascript '#upvote_' + @link.id.to_s %>').html('<%=escape_javascript @link.get_upvotes.size.to_s %>');
+$('<%=escape_javascript '#downvote_' + @link.id.to_s %>').html('<%=escape_javascript @link.get_downvotes.size.to_s %>');

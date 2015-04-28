@@ -8,15 +8,19 @@
 
   <div class="btn-group">
     <a class="btn btn-default btn-sm" href="<%= link.url %>">Visit Link</a>
-    <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+    <%= link_to like_link_path(link), method: :put, remote: true, class: "btn btn-default btn-sm" do %>
       <span class="glyphicon glyphicon-chevron-up"></span>
       Upvote
-      <%= link.get_upvotes.size %>
+      <div style="display:inline-block;" id=<%= 'upvote_' + link.id.to_s %>>
+        <%= link.get_upvotes.size %>
+      </div>
     <% end %>
-    <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+    <%= link_to dislike_link_path(link), method: :put, remote: true, class: "btn btn-default btn-sm" do %>
       <span class="glyphicon glyphicon-chevron-down"></span>
       Downvote
-      <%= link.get_downvotes.size %>
+      <div style="display:inline-block;" id=<%= 'downvote_' + link.id.to_s %>>
+        <%= link.get_downvotes.size %>
+      </div>
     <% end %>
   </div>
 <% end %>

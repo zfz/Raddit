@@ -68,13 +68,21 @@ class LinksController < ApplicationController
   def upvote
     @link = Link.find(params[:id])
     @link.upvote_by(current_user)
-    redirect_to :back 
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   def downvote
     @link = Link.find(params[:id])
     @link.downvote_by(current_user)
-    redirect_to :back
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   private
