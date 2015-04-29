@@ -67,7 +67,11 @@ class LinksController < ApplicationController
 
   def upvote
     @link = Link.find(params[:id])
-    @link.upvote_by(current_user)
+    if current_user.in? @link.votes_for.up.voters
+      @link.unvote_by(current_user)
+    else
+      @link.upvote_by(current_user)
+    end
 
     respond_to do |format|
       format.html { redirect_to :back }
@@ -77,7 +81,11 @@ class LinksController < ApplicationController
 
   def downvote
     @link = Link.find(params[:id])
-    @link.downvote_by(current_user)
+    if current_user.in? @link.votes_for.down.voters
+      @link.unvote_by(current_user)
+    else
+      @link.downvote_by(current_user)
+    end
 
     respond_to do |format|
       format.html { redirect_to :back }
